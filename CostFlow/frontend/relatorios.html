@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CostFlow | Relatórios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #E6E6E6; color: #3C3C3B; }
+        .bg-nexa-orange { background-color: #F36C21; }
+        .text-nexa-orange { color: #F36C21; }
+        .bg-nexa-gold { background-color: #F5B800; }
+        .bg-nexa-dark { background-color: #3C3C3B; }
+        .border-nexa-orange { border-color: #F36C21; }
+        .hover-nexa:hover { background-color: #F7D154; color: #3C3C3B; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-nexa-dark text-white flex flex-col">
+        <div class="p-6 flex items-center gap-3">
+            <div class="w-8 h-8 bg-nexa-orange rounded-md flex items-center justify-center">
+                <i data-lucide="trending-up" class="text-white w-5 h-5"></i>
+            </div>
+            <h1 class="text-xl font-bold tracking-tight">Cost<span class="text-nexa-orange">Flow</span></h1>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2 mt-4">
+            <a href="dashboard.html" class="flex items-center gap-3 p-3 hover-nexa rounded-lg transition-all text-gray-300">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+            </a>
+            <a href="importar.html" class="flex items-center gap-3 p-3 hover-nexa rounded-lg transition-all text-gray-300">
+                <i data-lucide="upload-cloud" class="w-5 h-5"></i> Importar Planilha
+            </a>
+            <a href="consultar.html" class="flex items-center gap-3 p-3 hover-nexa rounded-lg transition-all text-gray-300">
+                <i data-lucide="search" class="w-5 h-5"></i> Consultar Dados
+            </a>
+            <a href="relatorios.html" class="flex items-center gap-3 p-3 bg-nexa-orange rounded-lg text-white">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i> Relatórios
+            </a>
+            <a href="usuarios.html" class="flex items-center gap-3 p-3 hover-nexa rounded-lg transition-all text-gray-300">
+                <i data-lucide="users" class="w-5 h-5"></i> Usuários
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-700">
+            <div class="flex items-center gap-3 p-2">
+                <div class="w-10 h-10 rounded-full bg-nexa-gold flex items-center justify-center text-dark font-bold">AD</div>
+                <div>
+                    <p class="text-sm font-semibold">Admin Nexa</p>
+                    <p class="text-xs text-gray-400 italic">Administrador</p>
+                </div>
+                <button class="ml-auto text-gray-400 hover:text-white">
+                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col overflow-y-auto">
+
+        <header class="bg-white shadow-sm p-4 flex justify-between items-center px-8">
+            <h2 class="text-lg font-semibold text-nexa-dark uppercase tracking-wider">Relatórios</h2>
+            <div class="flex gap-3">
+                <select class="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-nexa-orange">
+                    <option>Ano fiscal 2024</option>
+                    <option>Ano fiscal 2025</option>
+                </select>
+                <button class="bg-nexa-orange text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90">
+                    <i data-lucide="file-down" class="w-4 h-4"></i> Exportar PDF
+                </button>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8">
+
+            <!-- Modelos de relatório -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <button class="text-left bg-white p-6 rounded-xl shadow-sm border-2 border-nexa-orange hover:shadow-md transition">
+                    <div class="p-2 bg-orange-50 rounded-lg w-fit mb-4">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-nexa-orange"></i>
+                    </div>
+                    <p class="font-bold text-sm">Budget vs Actual</p>
+                    <p class="text-xs text-gray-400 mt-1">Comparativo consolidado por categoria e mês</p>
+                </button>
+                <button class="text-left bg-white p-6 rounded-xl shadow-sm border-2 border-transparent hover:border-nexa-orange hover:shadow-md transition">
+                    <div class="p-2 bg-orange-50 rounded-lg w-fit mb-4">
+                        <i data-lucide="trending-up" class="w-5 h-5 text-nexa-orange"></i>
+                    </div>
+                    <p class="font-bold text-sm">Evolução de Forecast</p>
+                    <p class="text-xs text-gray-400 mt-1">Revisões de projeção ao longo do ano</p>
+                </button>
+                <button class="text-left bg-white p-6 rounded-xl shadow-sm border-2 border-transparent hover:border-nexa-orange hover:shadow-md transition">
+                    <div class="p-2 bg-orange-50 rounded-lg w-fit mb-4">
+                        <i data-lucide="pie-chart" class="w-5 h-5 text-nexa-orange"></i>
+                    </div>
+                    <p class="font-bold text-sm">Desvios por Área</p>
+                    <p class="text-xs text-gray-400 mt-1">Ranking de categorias fora do orçamento</p>
+                </button>
+            </div>
+
+            <!-- Relatório selecionado: Budget vs Actual -->
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="font-bold">Budget vs Actual — Consolidado 2024</h4>
+                    <i data-lucide="more-horizontal" class="text-gray-400"></i>
+                </div>
+                <div class="h-72 flex items-end justify-around gap-3 px-4">
+                    <div class="flex flex-col items-center gap-2 w-full">
+                        <div class="w-full flex gap-1 items-end h-56">
+                            <div class="bg-gray-200 w-1/2 h-full rounded-t"></div>
+                            <div class="bg-nexa-orange w-1/2 h-[85%] rounded-t"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-500">JUL</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full">
+                        <div class="w-full flex gap-1 items-end h-56">
+                            <div class="bg-gray-200 w-1/2 h-[90%] rounded-t"></div>
+                            <div class="bg-nexa-orange w-1/2 h-[95%] rounded-t"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-500">AGO</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full">
+                        <div class="w-full flex gap-1 items-end h-56">
+                            <div class="bg-gray-200 w-1/2 h-[80%] rounded-t"></div>
+                            <div class="bg-nexa-orange w-1/2 h-[70%] rounded-t"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-500">SET</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-full">
+                        <div class="w-full flex gap-1 items-end h-56">
+                            <div class="bg-gray-200 w-1/2 h-[75%] rounded-t"></div>
+                            <div class="bg-nexa-gold w-1/2 h-[60%] rounded-t"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-500">OUT (proj.)</span>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-6 mt-6">
+                    <div class="flex items-center gap-2 text-xs text-gray-500">
+                        <div class="w-3 h-3 bg-gray-200"></div> Budget
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-500">
+                        <div class="w-3 h-3 bg-nexa-orange"></div> Actual
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-500">
+                        <div class="w-3 h-3 bg-nexa-gold"></div> Forecast
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ranking de desvios -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="p-6 border-b">
+                    <h4 class="font-bold">Maiores desvios por categoria</h4>
+                </div>
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-gray-50 text-gray-400 text-[11px] uppercase tracking-wider font-bold">
+                        <tr>
+                            <th class="px-6 py-4">Categoria/Área</th>
+                            <th class="px-6 py-4">Budget</th>
+                            <th class="px-6 py-4">Actual</th>
+                            <th class="px-6 py-4">Desvio (%)</th>
+                            <th class="px-6 py-4">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 text-sm">
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-medium">Logística e Fretes</td>
+                            <td class="px-6 py-4">R$ 85.000,00</td>
+                            <td class="px-6 py-4 text-nexa-orange font-bold">R$ 92.100,00</td>
+                            <td class="px-6 py-4 text-red-600 font-semibold">+8.35%</td>
+                            <td class="px-6 py-4"><span class="text-xs bg-red-50 text-red-600 px-2 py-1 rounded font-semibold">Acima do budget</span></td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-medium">Manutenção Industrial</td>
+                            <td class="px-6 py-4">R$ 150.000,00</td>
+                            <td class="px-6 py-4 text-nexa-orange font-bold">R$ 142.300,00</td>
+                            <td class="px-6 py-4 text-green-600 font-semibold">-5.13%</td>
+                            <td class="px-6 py-4"><span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded font-semibold">Dentro do budget</span></td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-medium">TI e Software</td>
+                            <td class="px-6 py-4">R$ 42.000,00</td>
+                            <td class="px-6 py-4 text-nexa-orange font-bold">R$ 41.850,00</td>
+                            <td class="px-6 py-4 text-green-600 font-semibold">-0.35%</td>
+                            <td class="px-6 py-4"><span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded font-semibold">Dentro do budget</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
