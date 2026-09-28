@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CostFlow — Consolidação de Custos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><i id="logo"></i>Cost<span>Flow</span></div>
+      <nav class="nav" id="nav"></nav>
+      <div class="user">
+        <div class="avatar">AD</div>
+        <div><p>Admin Nexa</p><small>Administrador</small></div>
+        <button id="logout" title="Sair"></button>
+      </div>
+    </aside>
+    <main>
+      <header>
+        <h2 id="title"></h2>
+        <div class="actions">
+          <button class="bell" id="bell"><b></b></button>
+          <div class="search" id="search"><input type="text" placeholder="Buscar período..."></div>
+          <button class="btn" id="newImport"></button>
+        </div>
+      </header>
+      <div class="content" id="page"></div>
+    </main>
+  </div>
+
+  <div class="overlay" id="modal">
+    <div class="modal">
+      <div class="row" style="margin-bottom:24px">
+        <div><h3>Nova Importação</h3><p class="muted">Selecione um arquivo para importar</p></div>
+        <button id="closeModal" style="color:var(--g400)"></button>
+      </div>
+      <div class="drop">
+        <span id="modalIc" style="color:var(--orange)"></span>
+        <b>Arraste o arquivo aqui</b><small>ou clique para selecionar</small>
+      </div>
+      <div class="foot">
+        <button class="btn ghost" id="cancelModal" style="font-size:14px">Cancelar</button>
+        <button class="btn" id="confirmModal">Importar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
