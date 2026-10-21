@@ -1,0 +1,20 @@
+{
+  // Ambiente do GitHub Codespaces para o CostFlow.
+  // Ao criar o Codespace: instala as dependências e gera os dados fictícios do Painel Financeiro.
+  // Ao abrir: sobe o painel e abre a porta 8000 numa aba do navegador.
+  "name": "CostFlow",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install -r PainelFinanceiro/requirements.txt && python PainelFinanceiro/exemplos/gerar_exemplos.py",
+  "postAttachCommand": {
+    "painel": "cd PainelFinanceiro && python app.py"
+  },
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": { "label": "Painel Financeiro", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}

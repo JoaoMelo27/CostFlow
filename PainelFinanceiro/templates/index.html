@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Financeiro — Vazante</title>
+  <link rel="icon" href="/static/img/nexa_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/static/css/painel.css">
+</head>
+<body>
+  <main class="pagina">
+
+    <!-- Filtro de período (vale para todas as abas) -->
+    <div class="filtros" id="filtros">
+      <div class="seletor"><select id="filtro-ano" aria-label="Ano"></select></div>
+      <div class="seletor seletor-mes"><select id="filtro-mes" aria-label="Mês"></select></div>
+      <div class="alerta info" id="historico-vazio" hidden>
+        O histórico está vazio. Use a aba <b>Atualizar</b> para processar o primeiro mês.
+      </div>
+    </div>
+
+    <!-- Abas -->
+    <nav class="abas" id="abas">
+      <button data-aba="painel" class="ativa">Painel</button>
+      <button data-aba="insights">Overview / Insights</button>
+      <button data-aba="atualizar" id="botao-aba-atualizar">Atualizar</button>
+      <button data-aba="historico">Histórico</button>
+      <button data-aba="sobre">Sobre</button>
+    </nav>
+
+    <!-- ================================================= Painel -->
+    <section class="aba" id="aba-painel"></section>
+
+    <!-- ================================================= Overview / Insights -->
+    <section class="aba" id="aba-insights" hidden></section>
+
+    <!-- ================================================= Atualizar -->
+    <section class="aba" id="aba-atualizar" hidden>
+      <h2>Atualizar o painel</h2>
+      <p>
+        1) Coloque os 3 arquivos do mês na pasta abaixo · 2) clique em <b>Atualizar</b> ·
+        3) confira as validações · 4) confirme para gravar no histórico ·
+        5) preencha o Investimento (Capex/Opex/Oro) na seção logo abaixo.
+      </p>
+
+      <label class="rotulo" for="pasta">Pasta dos arquivos</label>
+      <input type="text" id="pasta" class="campo">
+
+      <label class="caixa-marcar">
+        <input type="checkbox" id="periodo-manual">
+        Escolher o período manualmente (por padrão vem do arquivo OCF)
+      </label>
+      <div class="duas-colunas" id="periodo-manual-campos" hidden>
+        <div>
+          <label class="rotulo" for="manual-ano">Ano</label>
+          <input type="number" id="manual-ano" class="campo" min="2020" max="2100" value="2026">
+        </div>
+        <div>
+          <label class="rotulo" for="manual-mes">Mês</label>
+          <div class="seletor largo"><select id="manual-mes"></select></div>
+        </div>
+      </div>
+
+      <button class="botao primario" id="botao-atualizar">Atualizar</button>
+      <div id="resultado-atualizar"></div>
+
+      <hr>
+      <h2>Investimento (Capex/Opex/Oro) KBRL — preenchimento manual</h2>
+      <div id="investimento"></div>
+    </section>
+
+    <!-- ================================================= Histórico -->
+    <section class="aba" id="aba-historico" hidden></section>
+
+    <!-- ================================================= Sobre -->
+    <section class="aba" id="aba-sobre" hidden></section>
+
+    <div class="carregando" id="carregando" hidden>Lendo os arquivos (pode levar alguns segundos)...</div>
+  </main>
+
+  <script src="/static/js/graficos.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

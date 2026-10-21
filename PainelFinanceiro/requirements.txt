@@ -1,0 +1,7 @@
+# Servidor web
+flask>=3.0
+# Leitura das planilhas (.xlsb e .xlsx)
+pyxlsb>=1.0.10
+openpyxl>=3.1
+# Painel em PDF
+reportlab>=4.0

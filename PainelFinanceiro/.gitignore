@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Banco de dados gerado ao rodar (cada máquina tem o seu)
+dados/*
+!dados/.gitkeep
+
+# Planilhas: nunca subir arquivos de entrada (reais ou de exemplo)
+entrada/*
+!entrada/.gitkeep
+exemplos/planilhas/
+*.xlsb
+*.xlsx
+*.xls
+
+# Exportações baixadas
+*.csv
+*.pdf
+
+# Sistema
+.DS_Store
+Thumbs.db
